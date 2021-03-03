@@ -3,7 +3,7 @@ pipeline {
 
     agent {
         node {
-            label 'SLAVE01'
+            label 'master'
         }
     }
 

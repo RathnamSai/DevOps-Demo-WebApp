@@ -10,18 +10,18 @@ pipeline {
       steps {
         cleanWs()
         sh """
-                                echo "Cleaned Up Workspace for ${APP_NAME}"
-                                """
+                                        echo "Cleaned Up Workspace for ${APP_NAME}"
+                                        """
       }
     }
 
     stage('Code Checkout') {
       steps {
         checkout([
-                                        $class: 'GitSCM', 
-                                        branches: [[name: '*/master']], 
-                                        userRemoteConfigs: [[url: 'https://github.com/RathnamSai/DevOps-Demo-WebApp.git']]
-                                    ])
+                                                  $class: 'GitSCM', 
+                                                  branches: [[name: '*/master']], 
+                                                  userRemoteConfigs: [[url: 'https://github.com/RathnamSai/DevOps-Demo-WebApp.git']]
+                                              ])
         }
       }
 

@@ -128,23 +128,7 @@ git 'https://github.com/RathnamSai/DevOps-Demo-WebApp.git'
 
 sh "mvn -f Acceptancetest/pom.xml test"
 }
-post {
 
-always {
-  slackSend channel: 'alerts', color: 'good', message: "Started - Job Name - ${env.JOB_NAME}, Build# - ${env.BUILD_NUMBER}, (<${env.BUILD_URL}|Open>)", tokenCredentialId: 'slacknotifications', username: 'jenkins'
-}
-success {
-  publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '\\Acceptancetest\\target\\surefire-reports', reportFiles: 'index.html', reportName: 'Sanity Test Report', reportTitles: ''])
-
-  echo "SanityTest results published successfully."
-  slackSend channel: 'alerts', color: 'good', message: "Success - Job Name - ${env.JOB_NAME}, Build# - ${env.BUILD_NUMBER}, (<${env.BUILD_URL}|Open>)", tokenCredentialId: 'slacknotifications', username: 'jenkins'
-
-}
-
-failure {
-  slackSend channel: 'alerts', color: 'danger', message: "Failed - Job Name - ${env.JOB_NAME}, Build# - ${env.BUILD_NUMBER}, (<${env.BUILD_URL}|Open>)", tokenCredentialId: 'slacknotifications', username: 'jenkins'
-}
-}
 
 }
 }

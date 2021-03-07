@@ -1,8 +1,7 @@
 pipeline {
 agent any
 tools {
-maven Maven3.6.3
-jdk jdk
+maven 'Maven3.6.3'
 
 }
 stages {
@@ -56,7 +55,7 @@ post {
 
 success {
 
-  deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://34.208.141.82:8080/')],
+  deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://54.191.223.35:8080/')],
     contextPath: '/QAWebapp',
     war: '**/*.war'
 

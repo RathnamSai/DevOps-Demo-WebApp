@@ -173,9 +173,6 @@ success {
 
 }
 
-failure {
-  slackSend channel: 'alerts', color: 'danger', message: "Failed - Job Name - ${env.JOB_NAME}, Build# - ${env.BUILD_NUMBER}, (<${env.BUILD_URL}|Open>)", tokenCredentialId: 'slack', username: 'jenkins'
-}
 }
 
 }

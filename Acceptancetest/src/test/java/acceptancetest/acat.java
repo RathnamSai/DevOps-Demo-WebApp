@@ -43,7 +43,7 @@ public class acat {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
-	/*@Test(priority = 1)
+	@Test(priority = 1)
 	public void repairticket() throws Exception {
 	//	WebElement welcome = wait.until(ExpectedConditions
 		//		.visibilityOfElementLocated(By.xpath("//h2[text()='WELCOME TO YOUR ACCOUNT OVERVIEW']")));
@@ -68,7 +68,7 @@ public class acat {
 	}
 
 	
-	@Test(priority = 2)
+	/*@Test(priority = 2)
 	public void navigation() {
 		driver.findElement(By.partialLinkText("Home")).click();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);

@@ -2,9 +2,42 @@ pipeline {
 agent any
 tools {
 maven 'Maven3.6.3'
+jdk jdk
 
 }
 stages {
+
+stage('StaticCodeAnalysis') {
+
+environment {
+scannerhome = tool 'sonarqube'
+}
+
+steps {
+
+git 'https://github.com/RathnamSai/DevOps-Demo-WebApp.git'
+
+
+}
+
+post {
+
+always {
+  slackSend channel: 'alerts', color: 'good', message: "Started - Job Name - ${env.JOB_NAME}, Build# - ${env.BUILD_NUMBER}, (<${env.BUILD_URL}|Open>)", tokenCredentialId: 'slack', username: 'jenkins'
+}
+
+success {
+slackSend channel: 'alerts', color: 'good', message: "Success - Job Name - ${env.JOB_NAME}, - ${env.BUILD_NUMBER}, (<${env.BUILD_URL}|Open>)", tokenCredentialId: 'slack', username: 'jenkins'
+}
+
+failure {
+  slackSend channel: 'alerts', color: 'danger', message: "Failed - Job Name - ${env.JOB_NAME}, Build# - ${env.BUILD_NUMBER}, (<${env.BUILD_URL}|Open>)", tokenCredentialId: 'slacknotifications', username: 'jenkins'
+}
+}
+
+}
+
+
 
 stage('BuildWebApp') {
 steps {
@@ -25,7 +58,7 @@ post {
 
 success {
 
-  deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://34.222.11.193:8080/')],
+  deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://54.191.223.35:8080/')],
     contextPath: '/QAWebapp',
     war: '**/*.war'
 
@@ -110,7 +143,7 @@ post {
 
 success {
 
-  deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://34.210.25.147:8080/')],
+  deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://52.38.138.70:8080/')],
     contextPath: '/ProdWebapp',
     war: '**/*.war'
 
@@ -131,18 +164,18 @@ sh "mvn -f Acceptancetest/pom.xml test"
 post {
 
 always {
-  slackSend channel: 'alerts', color: 'good', message: "Started - Job Name - ${env.JOB_NAME}, Build# - ${env.BUILD_NUMBER}, (<${env.BUILD_URL}|Open>)", tokenCredentialId: 'slack', username: 'jenkins'
+  slackSend channel: 'alerts', color: 'good', message: "Started - Job Name - ${env.JOB_NAME}, Build# - ${env.BUILD_NUMBER}, (<${env.BUILD_URL}|Open>)", tokenCredentialId: 'slacknotifications', username: 'jenkins'
 }
 success {
   publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '\\Acceptancetest\\target\\surefire-reports', reportFiles: 'index.html', reportName: 'Sanity Test Report', reportTitles: ''])
 
   echo "SanityTest results published successfully."
-  slackSend channel: 'alerts', color: 'good', message: "Success - Job Name - ${env.JOB_NAME}, Build# - ${env.BUILD_NUMBER}, (<${env.BUILD_URL}|Open>)", tokenCredentialId: 'slack', username: 'jenkins'
+  slackSend channel: 'alerts', color: 'good', message: "Success - Job Name - ${env.JOB_NAME}, Build# - ${env.BUILD_NUMBER}, (<${env.BUILD_URL}|Open>)", tokenCredentialId: 'slacknotifications', username: 'jenkins'
 
 }
 
 failure {
-  slackSend channel: 'alerts', color: 'danger', message: "Failed - Job Name - ${env.JOB_NAME}, Build# - ${env.BUILD_NUMBER}, (<${env.BUILD_URL}|Open>)", tokenCredentialId: 'slack', username: 'jenkins'
+  slackSend channel: 'alerts', color: 'danger', message: "Failed - Job Name - ${env.JOB_NAME}, Build# - ${env.BUILD_NUMBER}, (<${env.BUILD_URL}|Open>)", tokenCredentialId: 'slacknotifications', username: 'jenkins'
 }
 }
 

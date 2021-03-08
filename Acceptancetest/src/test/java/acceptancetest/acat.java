@@ -17,7 +17,7 @@ public class acat {
 	//public String URL = "http://localhost:8080/AVNCommunication-1.0/avnlogin.jsp";
 	//public String URL1 = "http://localhost:8080/AVNCommunication-1.0/avncreatepage.jsp";
 	
-/*	@Test(priority = 0)
+	@Test(priority = 0)
 	public void checkin() {
 		driver = new HtmlUnitDriver();
 		driver= new FirefoxDriver();
@@ -25,17 +25,18 @@ public class acat {
 		driver.get(URL);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		// Login Page content check
-		//driver.findElement(By.xpath("//h1[text()='JUPITER COMMUNICATION']")).isDisplayed();
+		driver.findElement(By.xpath("//h1[text()='JUPITER COMMUNICATION']")).isDisplayed();
 		driver.findElement(By.name("username")).isDisplayed();
 		driver.findElement(By.name("userpassword")).isDisplayed();
-		//driver.findElement(By.xpath("//button[text()='Login']")).isDisplayed();
+		driver.findElement(By.xpath("//button[text()='Login']")).isDisplayed();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
 		// Login operation
 		driver.findElement(By.name("username")).sendKeys("guest");
 		driver.findElement(By.name("userpassword")).sendKeys("guest");
 		driver.findElement(By.xpath("//button[text()='Login']")).click();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-	}*/
+	}
 
 	@Test(priority = 1)
 	public void repairticket() throws Exception {

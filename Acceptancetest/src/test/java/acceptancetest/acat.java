@@ -59,7 +59,8 @@ public class acat {
 				ExpectedConditions.visibilityOfElementLocated(By.xpath("//font[text()='Create Repair Ticket']")));
 		repair.isDisplayed();
 		WebElement cancel = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Cancel']")));
-		cancel.click();
+		cancel.isDisplayed();
+		//cancel.click();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		Thread.sleep(3000);
 		//WebElement repair1 = wait

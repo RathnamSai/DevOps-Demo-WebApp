@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 
 
 public class acat {
-	//public HtmlUnitDriver driver;
-	public WebDriver driver;
+	public HtmlUnitDriver driver;
+	//public WebDriver driver;
 	public WebDriverWait wait;
 	public String URL = "http://54.188.61.69:8080/ProdWebapp";
 	public String URL1 = "http://54.188.61.69:8080/ProdWebapp/avncreatepage.jsp";

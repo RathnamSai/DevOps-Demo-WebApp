@@ -57,7 +57,7 @@ post {
 
 success {
 
-  deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://34.222.11.193:8080/')],
+  deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://35.161.112.225:8080/')],
     contextPath: '/QAWebapp',
     war: '**/*.war'
 
@@ -142,7 +142,7 @@ post {
 
 success {
 
-  deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://34.210.25.147:8080/')],
+  deploy adapters: [tomcat8(credentialsId: 'tomcat', path: '', url: 'http://54.188.61.69:8080/')],
     contextPath: '/ProdWebapp',
     war: '**/*.war'
 

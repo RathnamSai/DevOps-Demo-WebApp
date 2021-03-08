@@ -10,8 +10,8 @@ import org.testng.annotations.Test;
 
 
 public class acat {
-	public HtmlUnitDriver driver;
-	//public WebDriver driver;
+	//public HtmlUnitDriver driver;
+	public WebDriver driver;
 	public WebDriverWait wait;
 	public String URL = "http://54.188.61.69:8080/ProdWebapp";
 	public String URL1 = "http://54.188.61.69:8080/ProdWebapp/avncreatepage.jsp";
@@ -34,6 +34,7 @@ public class acat {
 		driver.findElement(By.name("userpassword")).isDisplayed();
 		driver.findElement(By.xpath("//button[text()='Login']")).isDisplayed();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
 		
 		// Login operation
 		driver.findElement(By.name("username")).sendKeys("guest");

@@ -26,11 +26,12 @@ public class ftat {
 	public void logintest() {
 		driver = new HtmlUnitDriver();
 		//driver= new FirefoxDriver();
+		
 		wait = new WebDriverWait(driver, 10);
 		driver.get(URL);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		// Login Page content check
-		//driver.findElement(By.xpath("//h1[text()='JUPITER COMMUNICATION']")).isDisplayed();
+		driver.findElement(By.xpath("//h1[text()='JUPITER COMMUNICATION']")).isDisplayed();
 		driver.findElement(By.name("username")).isDisplayed();
 		driver.findElement(By.name("userpassword")).isDisplayed();
 		driver.findElement(By.xpath("//button[text()='Login']")).isDisplayed();

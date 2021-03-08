@@ -20,7 +20,7 @@ public class acat {
 	@Test(priority = 0)
 	public void checkin() {
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\2021\\Work\\POC-Git\\DevOps-Demo-WebApp\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "C:\\2021\\Work\\POC-Git\\DevOps-Demo-WebApp\chromedriver.exe");
 		//driver = new HtmlUnitDriver();
 		driver = new ChromeDriver();
 		//driver= new FirefoxDriver();

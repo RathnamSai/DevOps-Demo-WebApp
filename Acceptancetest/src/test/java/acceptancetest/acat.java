@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+
 public class acat {
 	public HtmlUnitDriver driver;
 	//public WebDriver driver;
@@ -21,8 +22,8 @@ public class acat {
 	public void checkin() {
 		
 		//System.setProperty("webdriver.chrome.driver", "C:\\2021\\Work\\POC-Git\\DevOps-Demo-WebApp\chromedriver.exe");
-		//driver = new HtmlUnitDriver();
-		driver = new ChromeDriver();
+		driver = new HtmlUnitDriver();
+		//driver = new ChromeDriver();
 		//driver= new FirefoxDriver();
 		wait = new WebDriverWait(driver, 10);
 		driver.get(URL);
